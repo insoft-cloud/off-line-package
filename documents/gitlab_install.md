@@ -15,3 +15,13 @@
 ### 2.1. 설치전 준비사항
 
 본 설치 가이드는 CentOS7, Red Hat Linux 환경에서 GitLab CE: for official Community Edition releases 설치하는 것을 기준으로 하였다.
+
+### 2.2. GIT 설치
+
+-	GIT 소스 컴파일 후 설치
+
+- **GIT 설치 과정**
+
+		$ 
+
+
