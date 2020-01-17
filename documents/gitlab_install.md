@@ -28,4 +28,12 @@
 		$ ./configure --prefix=/usr
 		$ sudo make install
 
+### 2.3. GITLAB 설치
+
+-	GITLAB 설치
+
+		$ sudo EXTERNAL_URL="http://localhost:9091" rpm -i gitlab.rpm
+		$ https://wikidocs.net/16279
+		$ https://medium.com/@jjeaby/gitlab-%EC%84%A4%EC%A0%95-%EB%B3%80%EA%B2%BD-f3e0918adac1
+		
 
