@@ -22,6 +22,10 @@
 
 - **GIT 설치 과정**
 
-		$ 
+		$ tar -zxf git-2.23.1.tar.gz
+		$ cd git-2.23.1
+		$ make configure
+		$ ./configure --prefix=/usr
+		$ sudo make install
 
 
