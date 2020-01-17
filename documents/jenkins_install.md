@@ -4,6 +4,8 @@
     
 2. [GITLAB 설치](#2-설치전-준비사항)
     *  [2.1 설치전 준비사항](#21-설치전-준비사항)
+    *  [2.2 jre8 설치](#22-설치전-준비사항)
+    *  [2.3 설치전 준비사항](#23-설치전-준비사항)
     
 # 1. 문서 개요
 ### 1.1. 목적
@@ -33,4 +35,20 @@
 		$ source /etc/profile
 		$ java -version
 
+### 2.3. maven 설치
+
+-	Jenkins에서 maven 빌드를 하기 위해 maven 3.6.1 설치 
+- 	maven은 packages 폴더 안에서 다운로드 받음.
+
+- **maven 설치**
+
+		$ tar -zxf  apache-maven-3.6.1-bin.tar.gz
+		$ sudo vi /etc/profile
+		  맨아래 아래 내용 추가
+                  #MAVEN
+			export MAVEN_HOME=/home/tester/apache-maven-3.6.1
+			export PATH=$PATH:$MAVEN_HOME/bin
+			
+		$ source /etc/profile
+		$ mvn -version
 
