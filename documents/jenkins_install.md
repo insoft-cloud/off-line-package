@@ -8,24 +8,29 @@
 # 1. 문서 개요
 ### 1.1. 목적
 
-본 문서 오프라인 환경에서 GITLAB을 설치 하는 방법을 기술하였다.
+본 문서 오프라인 환경에서 Jenkins를 설치 하는 방법을 기술하였다.
 
-# 2. GITLAB 설치
+# 2. Jenkins 설치
 
 ### 2.1. 설치전 준비사항
 
-본 설치 가이드는 CentOS7, Red Hat Linux 환경에서 GitLab CE: for official Community Edition releases 설치하는 것을 기준으로 하였다.
+본 설치 가이드는 CentOS7, Red Hat Linux 환경에서 Jenkins 설치하는 것을 기준으로 하였다.
 
-### 2.2. GIT 설치
+### 2.2. jre8 설치
 
--	GIT 소스 컴파일 후 설치
+-	Jenkins를 설치 하기 전에 Jenkins 를 구동하기 위해 jre8 를 설치 한다. 
+- 	jre server 버전은 packages 폴더 안에서 다운로드 받음.
 
-- **GIT 설치 과정**
+- **java 설치**
 
-		$ tar -zxf git-2.23.1.tar.gz
-		$ cd git-2.23.1
-		$ make configure
-		$ ./configure --prefix=/usr
-		$ sudo make install
+		$ tar -zxf server-jre-8u241-linux-x64.tar.gz
+		$ sudo vi /etc/profile
+		  맨아래 아래 내용 추가
+                  #JAVA
+			export JAVA_HOME=/home/tester/java/jdk1.8.0_241
+			export PATH=$PATH:$JAVA_HOME/bin
+			export CLASSPATH=.:$JAVA_HOME/lib/tools.jar
+		$ source /etc/profile
+		$ java -version
 
 
