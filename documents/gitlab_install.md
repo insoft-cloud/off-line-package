@@ -4,6 +4,9 @@
     
 2. [GITLAB 설치](#2-설치전-준비사항)
     *  [2.1 설치전 준비사항](#21-설치전-준비사항)
+    *  [2.2 GIT 설치](#21-GIT-설치)
+    *  [2.3 GITLAB 설치](#22-GITLAB-설치)
+
     
 # 1. 문서 개요
 ### 1.1. 목적
@@ -29,6 +32,9 @@
 		$ sudo make install
 
 ### 2.3. GITLAB 설치
+
+-	packages 폴더 안에 있는 분할된 압축파일 gitlab-ce-12.7.7.tar.gz*  을 분할압축 해지를 한다.
+		$ cat gitlab-ce-12.7.7.tar.gz* | tar xvfz -
 
 -	GITLAB 설치
 
