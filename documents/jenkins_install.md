@@ -1,11 +1,13 @@
 ## Table of Contents
+
 1. [문서 개요](#1-문서-개요)
     *  [1.1 목적](#11-목적)
     
 2. [GITLAB 설치](#2-설치전-준비사항)
     *  [2.1 설치전 준비사항](#21-설치전-준비사항)
-    *  [2.2 jre8 설치](#22-설치전-준비사항)
-    *  [2.3 설치전 준비사항](#23-설치전-준비사항)
+    *  [2.2 jre8 설치](#22-jre8-설치)
+    *  [2.3 maven 설치](#23-maven-설치)
+    *  [2.4 Jenkins 설치 및 구동](#24-jenkins-설치-및-구동)
     
 # 1. 문서 개요
 ### 1.1. 목적
@@ -52,3 +54,12 @@
 		$ source /etc/profile
 		$ mvn -version
 
+
+### 2.4. Jenkins 설치 및 구동
+
+-	packages 폴더 안에 있는 분할된 압축파일 jenkins.backup.tar.gz*  을 분할압축 해지를 한다.
+		$ cat jenkins.backup.tar.gz* | tar xvfz -
+		
+-	jenkins.backup.tar.gz 파일을 다시 압축을 푼다
+		$ tar -zxf jenkins.backup.tar.gz
+		$ jenkins 폴더안의 jenkins.sh 파일을 수정하여 구동한다.
