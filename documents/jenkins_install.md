@@ -8,6 +8,7 @@
     *  [2.2 jre8 설치](#22-jre8-설치)
     *  [2.3 maven 설치](#23-maven-설치)
     *  [2.4 Jenkins 설치 및 구동](#24-jenkins-설치-및-구동)
+    *  [2.5 Jenkins job 생성](#25-jenkins-job-생성)
     
 # 1. 문서 개요
 ### 1.1. 목적
@@ -63,3 +64,8 @@
 -	jenkins.backup.tar.gz 파일을 다시 압축을 푼다
 		$ tar -zxf jenkins.backup.tar.gz
 		$ jenkins 폴더안의 jenkins.sh 파일을 수정하여 구동한다.
+		
+### 2.5. Jenkins job 생성
+
+-	Job 생성에 대한 url 
+		$ https://www.howtodo.cloud/devops/docker/2019/05/16/devops-application.html
