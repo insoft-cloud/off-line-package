@@ -27,19 +27,19 @@ pipeline {
         }
         stage('Build docker image') {
             steps {
-                sh 'docker build -t $registry:latest .'
+                sh 'sudo docker build -t $registry:latest .'
             }
         }
         stage('Deploy docker image') {
             steps {
                 withDockerRegistry([ credentialsId: registryCredential, url: "" ]) {
-                    sh 'docker push $registry:latest'
+                    sh 'sudo docker push $registry:latest'
                 }
             }
         }
         stage('Clean docker image') {
             steps{
-                sh "docker rmi $registry"
+                sh "sudo docker rmi $registry"
             }
         }
      }
