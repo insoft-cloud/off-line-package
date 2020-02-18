@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-apione
+  namespace: spring-cloud
+spec:
+  selector:
+    matchLabels:
+      app: spring-apione
+      name: spring-apione
+      department: engineering
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spring-apione
+        name: spring-apione
+        department: engineering
+    spec:
+      containers:
+      - name: spring-apione
+        image: registry.smartbig.paas:5000/spring-sample-api:latest
+        command: ["java"]
+        args: ["-jar", "/SampleAPI-0.0.1-SNAPSHOT.jar","--eureka.client.serviceUrl.defaultZone=http://10.25.204.137:32651/eureka/"]
+        ports:
+        - containerPort: 8090
+        resources:
+          limits:
+            memory: 1Gi
+          requests:
+            memory: 512Mi
+      imagePullSecrets: 
+      - name: private-docker-spring-cloud-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: spring-apione
+    department: engineering
+    name: spring-apione
+  name: spring-apione
+  namespace: spring-cloud
+spec:
+  externalIPs:
+  - 10.25.204.137
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32655
+    port: 8090
+    protocol: TCP
+    targetPort: 8090
+  selector:
+    app: spring-apione
+    department: engineering
+    name: spring-apione
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
