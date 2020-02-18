@@ -19,9 +19,9 @@ spec:
     spec:
       containers:
       - name: spring-apione
-        image: registry.smartbig.paas:5000/spring-sample-api:latest
+        image: registry.test.paas:5000/spring-sample-api:latest
         command: ["java"]
-        args: ["-jar", "/SampleAPI-0.0.1-SNAPSHOT.jar","--eureka.client.serviceUrl.defaultZone=http://10.25.204.137:32651/eureka/"]
+        args: ["-jar", "/SampleAPI-0.0.1-SNAPSHOT.jar","--eureka.client.serviceUrl.defaultZone=http://10.xxx:32666/eureka/"]
         ports:
         - containerPort: 8090
         resources:
@@ -44,7 +44,7 @@ metadata:
   namespace: spring-cloud
 spec:
   externalIPs:
-  - 10.25.204.137
+  - 10.xx.xx.xx
   externalTrafficPolicy: Cluster
   ports:
   - nodePort: 32655
