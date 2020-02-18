@@ -2,10 +2,10 @@ pipeline {
     environment {
         
         registry = "spring-admin"
-        registryServer = 'registry.smartbig.paas:5000'
+        registryServer = 'registry.test.paas:5000'
         registryCredential = 'private-docker-reg'
         deploymentFile = 'sample_admin_deployment.yaml'
-        kubeConfig = '/home/smartbig/.kube/config'
+        kubeConfig = '/home/ubuntu/.kube/config'
     }
     agent any
     stages {
