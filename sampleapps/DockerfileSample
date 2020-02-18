@@ -1,23 +1,23 @@
-FROM registry.smartbig.paas:5000/openjdk:8
+FROM registry.test.paas:5000/openjdk:8
 
-MAINTAINER smartbig Paas Engineering
-LABEL name="smartbig" version="1.0.0"
+MAINTAINER test Paas Engineering
+LABEL name="test" version="1.0.0"
 
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime &&  echo "Asia/Seoul" > /etc/timezone
 
 RUN mkdir -p /app /data1
-ADD smartbig /app/smartbig
-ADD tibco /app/smartbig/tibco
-ENV APP_HOME=/app/smartbig
+ADD smartbig /app/sample
+ADD tib /app/sample/tib
+ENV APP_HOME=/app/sample
 ENV LANG en_US.utf8
 
-ENV TIBCO_HOME=/app/smartbig
-ENV LVS_HOME=$TIBCO_HOME/CMessage
-ENV TIBRV_HOME=$TIBCO_HOME/tibco/tibrv/8.3
-ENV PATH=.:$TIBRV_HOME/bin:$PATH
-ENV TIBinc=$TIBRV_HOME/include/tibrv
-ENV TIBlib=$TIBRV_HOME/liib
-ENV LD_LIBRARY_PATH=$TIBRV_HOME/lib:$TIBRV_HOME/lib/64
+ENV TIB_HOME=/app/sample
+ENV lcv_HOME=$TIB_HOME/Message
+ENV TIB_HOME=$TIB_HOME/tib/lib
+ENV PATH=.:$TIB_HOME/bin:$PATH
+ENV Tinc=$TIB_HOME/include/lib
+ENV Tlib=$TIB_HOME/lib
+ENV LD_LIBRARY_PATH=$TIB_HOME/lib:$TIB_HOME/lib/64
 
 
 RUN chmod -R +x ${APP_HOME}
@@ -27,7 +27,7 @@ RUN chmod 755 ./start_docker.sh
 VOLUME /data1
 EXPOSE 13500
 
-ENTRYPOINT java -Drun.env=REAL -Dsmartfx.processName=SMARTBIG_101 -Xmx16384m -Dsmartfx.propertyFiles=/app/smartbig/smartfx.properties -Dcmessage.home=/app/smartbig/CMessage -cp /app/smartbig/boot/smartfx-bootstrap-4.0.jar com.skhynix.smartfx.bootstrap.Bootstrap start
+ENTRYPOINT java -Drun.env=REAL -Dsmartfx.processName=pos_1 -Xmx16384m -Dapp.propertyFiles=/app/smaple/app.properties -Dcmessage.home=/app/smaple/Message -cp /app/sample/boot/bootstrap-4.0.jar com.sample.bootstrap.Bootstrap start
 
 
 #ENTRYPOINT ["./start_docker.sh"]
